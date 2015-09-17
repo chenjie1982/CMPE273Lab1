@@ -90,18 +90,18 @@ var testSleep = []testpairSleep{
 	//{ time.Duration(0),time.Hour },
 }
 
-func TestSleep(t *testing.T) {
-	for _, pair := range testSleep {
-		v := pair.duration*pair.time
-		s1 := time.Now();
-		s2 := s1.Add(v);
-		Sleep(v)
-		if time.Now() != s2 {
-			t.Error(
-				"For", pair.duration,
-				"expected", v,
-				"got",time.Now(),"s",s1,
-			)
-		}
-	}
-}
+func TestSleep(t *testing.T) {                              
+	for _, pair := range testSleep {                        
+		v := pair.duration*pair.time                        
+		s1 := time.Now();                                   
+		s2 := s1.Add(v);                                    
+		Sleep(v)                                            
+		if time.Now().Unix() != s2.Unix() {                 
+			t.Error(                                        
+				"For", pair.duration,                       
+				"expected", v,                              
+				"got",time.Now(),"s",s1,                    
+			)                                               
+		}                                                   
+	}                                                       
+}                                                           
