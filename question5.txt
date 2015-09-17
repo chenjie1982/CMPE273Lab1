@@ -1,0 +1,8 @@
+What are defer, panic and recover?
+Defer: the system schedules a function call to be run after the function completes.
+Panic: It is a function to cause a run time error.
+Recover: It is stops the panic and returns the value that was passed to the call to panic.
+
+How do you recover from a run-time panic?
+When the panic stop execution of the function, the recover must be called inside a defer function, which returns the values that was passed to panic.
+
